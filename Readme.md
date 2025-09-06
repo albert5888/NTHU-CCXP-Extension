@@ -18,8 +18,7 @@
 
 手動安裝步驟如下：
 
-1. 下載本專案到本地
-開啟 `https://github.com/albert5888/NTHU-CCXP-Extension/releases/` 點選「Source code (zip)」
+1. 下載專案，開啟 `https://github.com/albert5888/NTHU-CCXP-Extension/releases/` 點選「Source code (zip)」
 
 2. 解壓縮檔案
 
