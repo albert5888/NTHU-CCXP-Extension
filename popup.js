@@ -21,7 +21,7 @@ function updateACIX() {
 restoreBtn.addEventListener("click", async () => {
   // 恢復登入
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  chrome.tabs.update(tab.id, { url: chrome.runtime.getURL("template.html") });
+  chrome.tabs.update(tab.id, { url: chrome.runtime.getURL("pages/template.html") });
 });
 
 
