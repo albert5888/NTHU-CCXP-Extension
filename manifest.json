@@ -1,6 +1,6 @@
 {
   "name": "NTHU 校務系統優化工具",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "permissions": [
     "storage",
