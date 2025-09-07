@@ -11,6 +11,7 @@
 
 - 登入校務系統後，再次訪問`https://www.ccxp.nthu.edu.tw/ccxp/INQUIRE/`會自動登入
 - 透過點選插件圖示可快速自動登入
+- 自動保持連線 (Beta)
 
 ## 安裝插件
 
