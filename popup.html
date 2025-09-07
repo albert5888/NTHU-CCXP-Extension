@@ -10,6 +10,22 @@
       margin: 0;
       padding: 15px;
       width: 280px;
+      position: relative;
+    }
+
+    .settings-btn {
+      position: absolute;
+      top: 20px; /* 往下移動 */
+      right: 20px; /* 往左移動 (減少 right 值) */
+      border: none;
+      background: transparent;
+      font-size: 24px; /* 增大字體大小 */
+      cursor: pointer;
+      color: #666;
+    }
+
+    .settings-btn:hover {
+      color: #000;
     }
 
     .card {
@@ -76,6 +92,11 @@
   </style>
 </head>
 <body>
+
+
+  <!-- 設定按鈕 (右上角小齒輪) -->
+  <button id="settings-btn" class="settings-btn">⚙️</button>
+
   <div class="card">
     <h2>最新登入資訊</h2>
     <div id="acix">Loading...</div>

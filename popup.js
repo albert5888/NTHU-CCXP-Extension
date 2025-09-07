@@ -1,6 +1,7 @@
 const acixDiv = document.getElementById("acix");
 const restoreBtn = document.getElementById("restore-login");
 const logoutBtn = document.getElementById("logout-login");
+const settingsBtn = document.getElementById("settings-btn");
 
 updateACIX();
 
@@ -19,11 +20,18 @@ function updateACIX() {
 }
 
 restoreBtn.addEventListener("click", async () => {
-  // 恢復登入
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  chrome.tabs.update(tab.id, { url: chrome.runtime.getURL("pages/template.html") });
+  // 讀取設定
+  chrome.storage.sync.get(["useNewTab"], async (result) => {
+    if (result.useNewTab) {
+      // 使用新分頁
+      chrome.tabs.create({ url: chrome.runtime.getURL("pages/template.html") });
+    } else {
+      // 更新目前分頁
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      chrome.tabs.update(tab.id, { url: chrome.runtime.getURL("pages/template.html") });
+    }
+  });
 });
-
 
 logoutBtn.addEventListener("click", () => {
   chrome.storage.local.remove("ACIXSTORE", () => {
@@ -34,4 +42,8 @@ logoutBtn.addEventListener("click", () => {
     });
     updateACIX();
   });
+});
+
+settingsBtn.addEventListener("click", () => {
+  window.location.href = "setting.html"; // 切換到設定頁面
 });

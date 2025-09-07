@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>設定 - NTHU 校務系統優化工具</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 15px;
+      width: 320px; /* ⬅ 稍微加寬 */
+      position: relative;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      color: #333;
+      text-align: center;
+    }
+
+    /* 返回按鈕 */
+    .back-btn {
+      position: absolute;
+      top: 22px;
+      left: 15px;
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .back-btn:hover {
+      color: #000;
+    }
+
+    /* 開關 */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2a72de;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .option-label {
+      font-size: 15px;
+      color: #333;
+      vertical-align: middle;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 13px;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- 返回按鈕放到白色框框內 -->
+    <button id="back-btn" class="back-btn">←</button>
+
+    <h2>插件設定</h2>
+
+    <!-- 開關 1 -->
+    <label class="switch">
+      <input type="checkbox" id="use-newtab">
+      <span class="slider"></span>
+    </label>
+    <span class="option-label">使用另開分頁恢復登入狀態</span>
+    <br><br>
+
+    <!-- 開關 2 -->
+    <label class="switch">
+      <input type="checkbox" id="auto-keepalive">
+      <span class="slider"></span>
+    </label>
+    <span class="option-label">自動保持連線 (Beta)</span>
+
+    <div id="status" class="status"></div>
+  </div>
+  <script src="setting.js"></script>
+</body>
+</html>
